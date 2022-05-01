@@ -18,5 +18,5 @@ terraform apply -var-file terraform.tfvars
 
 # 삭제
 ```sh
-terraform destroy
+terraform destroy -var-file terraform.tfvars
 ```

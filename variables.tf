@@ -10,6 +10,12 @@ variable ec2_instance_name {
   description = "ec2 instance name"
 }
 
+variable ec2_instance_ami {
+  type        = string
+  default     = "ami-0e9dbc02ff361d8fa"
+  description = "ec2 instance ami"
+}
+
 variable bucket_name {
   type        = string
   default     = ""

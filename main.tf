@@ -34,7 +34,7 @@ module "ec2_instance" {
 
   name          = var.ec2_instance_name
   instance_type = var.ec2_instance_type
-  ami           = "ami-0e9dbc02ff361d8fa" # ubuntu20.04(22220104), hvm-ssd
+  ami           = var.ec2_instance_ami
 }
 
 module "s3" {

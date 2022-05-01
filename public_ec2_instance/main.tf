@@ -1,4 +1,4 @@
-resource "aws_security_group" "public" {
+resource "aws_security_group" "all" {
   name = "${var.name}-sg"
 
   vpc_id      = var.vpc_id
@@ -53,11 +53,23 @@ resource "aws_instance" "public" {
   subnet_id     = var.subnet_id
   ami           = var.ami
   instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.public.id]
+  vpc_security_group_ids = [aws_security_group.all.id]
   iam_instance_profile = aws_iam_instance_profile.profile.name
   associate_public_ip_address = true
 
   tags = {
-    Name = "${var.name}"
+    Name = "${var.name}-public"
+  }
+}
+
+resource "aws_instance" "private" {
+  subnet_id     = var.subnet_id
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = [aws_security_group.all.id]
+  iam_instance_profile = aws_iam_instance_profile.profile.name
+
+  tags = {
+    Name = "${var.name}-private"
   }
 }
