@@ -13,7 +13,7 @@ export AWS_DEFAULT_REGION="ap-northeast-2"
 ```sh
 terraform init
 terraform plan
-terraform apply
+terraform apply -var-file terraform.tfvars
 ```
 
 # 삭제

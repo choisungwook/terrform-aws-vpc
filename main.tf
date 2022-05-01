@@ -32,13 +32,13 @@ module "ec2_instance" {
   vpc_id    = module.vpc.vpc_id
   subnet_id = module.vpc.public_subnet_ids["sub-1"]
 
-  name          = "terraform_public_demo_a"
-  instance_type = "t2.micro"
+  name          = var.ec2_instance_name
+  instance_type = var.ec2_instance_type
   ami           = "ami-0e9dbc02ff361d8fa" # ubuntu20.04(22220104), hvm-ssd
 }
 
 module "s3" {
   source     = "./s3"
 
-  bucket_name = "terraform-demo-choilab"
+  bucket_name = var.bucket_name
 }
