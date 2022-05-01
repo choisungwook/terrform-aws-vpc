@@ -36,3 +36,9 @@ module "ec2_instance" {
   instance_type = "t2.micro"
   ami           = "ami-0e9dbc02ff361d8fa" # ubuntu20.04(22220104), hvm-ssd
 }
+
+module "s3" {
+  source     = "./s3"
+
+  bucket_name = "terraform-demo-choilab"
+}
